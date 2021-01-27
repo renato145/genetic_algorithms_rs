@@ -8,11 +8,12 @@ use clap::Clap;
     author = "Renato H. <renato.hermoza@pucp.edu.pe>"
 )]
 pub struct Opts {
-    /// Sets a custom config file. Could have been an Option<T> with no default too
+    /// Number of generations to run the optimization
+    #[clap(short, long, default_value = "1000")]
+    pub generations: u64,
+    /// Population size (number of individuals)
     #[clap(short, long, default_value = "20")]
-    pub population_size: usize,
-    #[clap(short, long, default_value = "10")]
-    pub num_dimensions: usize,
+    pub pop_sz: usize,
     /// Lower limit for random generation of individual positions
     #[clap(
         short,
