@@ -1,5 +1,5 @@
 [package]
-name = "genetic_algorithms"
+name = "genetic_algorithms_rs"
 version = "0.1.0"
 authors = ["Renato <renato145@hotmail.com>"]
 edition = "2018"

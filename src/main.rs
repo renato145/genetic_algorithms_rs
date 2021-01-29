@@ -1,4 +1,4 @@
-use genetic_algorithms::*;
+use genetic_algorithms_rs::*;
 
 fn main() {
     let opts = Opts::parse();
