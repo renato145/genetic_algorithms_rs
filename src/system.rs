@@ -140,17 +140,19 @@ impl<'a> System<'a> for EvolveMechanism {
             })
             .collect::<Vec<_>>();
 
-        // Step 3
         for (idx, (dims, others, fitness)) in
             izip!(random_dims, other_individuals, all_fitness).enumerate()
         {
             let mut new_position = positions[idx].0.clone();
             for dim in dims {
+                // Step 3
                 let v = positions[others[0]].0[dim]
                     + mutation_factor.0
                         * (positions[others[1]].0[dim] - positions[others[2]].0[dim]);
+                // Step 4
                 new_position[dim] = v.max(limits.0).min(limits.1);
             }
+            // Step 5
             let new_fitness = eval_fitness(&input.0, &new_position);
             if new_fitness < fitness.0 {
                 positions[idx].0 = new_position;
