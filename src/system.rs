@@ -108,7 +108,6 @@ impl<'a> System<'a> for EvolveMechanism {
     ) {
         let mut rng = thread_rng();
         let range_dims = Uniform::new(0.0f32, 1.0f32);
-        // let (mut positions, mut all_fitness) = (&mut fitness_storage, &mut position_storage).join().collect::<Vec<_>>();
         let (mut positions, all_fitness): (Vec<_>, Vec<_>) =
             (&mut position_storage, &mut fitness_storage).join().unzip();
         let pop_sz = positions.len();
